@@ -1,61 +1,62 @@
-apiVersion: backstage.io/v1alpha1
-kind: Component
-metadata:
-  name: mono-repo-no-docs
-  title: Mono Repo with no docs
-  description: |
-    A mono-repo service for testing Backstage functionality. Configured for GitHub Actions and
-    Sentry.
-  labels:
-    tier: "3"
-  links:
-    - url: https://www.notion.so/roadie/Sample-Service-e067465e56a14ae9b0507f8559f6aa26
-      title: Datadog
-      icon: dashboard
-  tags:
-    - test
-    - js
-    - demo
-  annotations:
-    github.com/project-slug: roadie-demo/mono-repo-no-docs
-    # The Sentry organization is stored in the app-config.yaml of the Backstage instance.
-    sentry.io/project-slug: sample-service
-    cloud.google.com/function-ids: projects/roadie-dev-283705/locations/europe-west1/functions/test-fn-1
-    pagerduty.com/service-id: PZDAG59
-    snyk.io/org-id: a0e0775e-2b17-4e57-8d85-6c8fbe5bc9a0
-    backstage.io/kubernetes-id: mono-repo-no-docs
-    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/name=mono-repo-no-docs'
-    opsgenie.com/component-selector: sample-service-1
-    qameta.io/allure-project: value
-    newrelic.com/dashboard-guid: 'MzcwMjEwN3xWSVp8REFTSEJPQVJEfGRhOjkwMDk4'
-    datadoghq.com/tag-name: mono-repo-no-docs
-    datadoghq.com/slo_tag: service:mono-repo-no-docs
-    datadoghq.com/monitor_tags: mono-repo-no-docs
-    backstage.io/code-coverage: enabled
-spec:
-  type: service
-  owner: group:roadiehq/engineering
-  lifecycle: production
-  system: sample-system
-  providesApis:
-    - mono-repo-no-docs
-  dependsOn:
-    - Component:sample-service-2
-    - Resource:sample-s3-bucket
+- apiVersion: backstage.io/v1alpha1
+  kind: Component
+  metadata:
+    name: mono-repo-no-docs
+    title: Mono Repo with no docs
+    description: >
+      A mono-repo service for testing Backstage functionality. Configured for
+      GitHub Actions and
 
----
-apiVersion: backstage.io/v1alpha1
-kind: API
-metadata:
-  title: Mono Repo with no docs
-  name: mono-repo-no-docs
-  description: The Sample Service API allows you to send errors to Rollbar or Sentry.
-  tags:
-    - unstable
-spec:
-  type: openapi
-  lifecycle: production
-  owner: group:roadiehq/engineering
-  system: sample-system
-  definition:
-    $text: https://petstore.swagger.io/v2/swagger.yaml
+      Sentry.
+    labels:
+      tier: '3'
+    links:
+      - url: >-
+          https://www.notion.so/roadie/Sample-Service-e067465e56a14ae9b0507f8559f6aa26
+        title: Datadog
+        icon: dashboard
+    tags:
+      - test
+      - js
+      - demo
+    annotations:
+      github.com/project-slug: roadie-demo/mono-repo-no-docs
+      sentry.io/project-slug: sample-service
+      cloud.google.com/function-ids: projects/roadie-dev-283705/locations/europe-west1/functions/test-fn-1
+      pagerduty.com/service-id: PZDAG59
+      snyk.io/org-id: a0e0775e-2b17-4e57-8d85-6c8fbe5bc9a0
+      backstage.io/kubernetes-id: mono-repo-no-docs
+      backstage.io/kubernetes-label-selector: app.kubernetes.io/name=mono-repo-no-docs
+      opsgenie.com/component-selector: sample-service-1
+      qameta.io/allure-project: value
+      newrelic.com/dashboard-guid: MzcwMjEwN3xWSVp8REFTSEJPQVJEfGRhOjkwMDk4
+      datadoghq.com/tag-name: mono-repo-no-docs
+      datadoghq.com/slo_tag: service:mono-repo-no-docs
+      datadoghq.com/monitor_tags: mono-repo-no-docs
+      backstage.io/code-coverage: enabled
+      backstage.io/techdocs-ref: doc:.
+  spec:
+    type: service
+    owner: group:roadiehq/engineering
+    lifecycle: production
+    system: sample-system
+    providesApis:
+      - mono-repo-no-docs
+    dependsOn:
+      - Component:sample-service-2
+      - Resource:sample-s3-bucket
+- apiVersion: backstage.io/v1alpha1
+  kind: API
+  metadata:
+    title: Mono Repo with no docs
+    name: mono-repo-no-docs
+    description: The Sample Service API allows you to send errors to Rollbar or Sentry.
+    tags:
+      - unstable
+  spec:
+    type: openapi
+    lifecycle: production
+    owner: group:roadiehq/engineering
+    system: sample-system
+    definition:
+      $text: https://petstore.swagger.io/v2/swagger.yaml
