@@ -1,10 +1,10 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: sample-service-no-docs
-  title: Sample Service with no TechDocs
+  name: mono-repo-no-docs
+  title: Mono Repo with no docs
   description: |
-    A service for testing Backstage functionality. Configured for GitHub Actions and
+    A mono-repo service for testing Backstage functionality. Configured for GitHub Actions and
     Sentry.
   labels:
     tier: "3"
@@ -17,22 +17,20 @@ metadata:
     - js
     - demo
   annotations:
-    github.com/project-slug: RoadieHQ/sample-service
+    github.com/project-slug: roadie-demo/mono-repo-no-docs
     # The Sentry organization is stored in the app-config.yaml of the Backstage instance.
     sentry.io/project-slug: sample-service
     cloud.google.com/function-ids: projects/roadie-dev-283705/locations/europe-west1/functions/test-fn-1
     pagerduty.com/service-id: PZDAG59
     snyk.io/org-id: a0e0775e-2b17-4e57-8d85-6c8fbe5bc9a0
-    backstage.io/kubernetes-id: sample-service
-    travis-ci.com/repo-slug: RoadieHQ/sample-service
-    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/name=sample-service'
+    backstage.io/kubernetes-id: mono-repo-no-docs
+    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/name=mono-repo-no-docs'
     opsgenie.com/component-selector: sample-service-1
     qameta.io/allure-project: value
     newrelic.com/dashboard-guid: 'MzcwMjEwN3xWSVp8REFTSEJPQVJEfGRhOjkwMDk4'
-    sonarqube.org/project-key: RoadieHQ_sample-service
-    datadoghq.com/tag-name: sample-service
-    datadoghq.com/slo_tag: service:sample-service
-    datadoghq.com/monitor_tags: sample-service
+    datadoghq.com/tag-name: mono-repo-no-docs
+    datadoghq.com/slo_tag: service:mono-repo-no-docs
+    datadoghq.com/monitor_tags: mono-repo-no-docs
     backstage.io/code-coverage: enabled
 spec:
   type: service
@@ -40,7 +38,7 @@ spec:
   lifecycle: production
   system: sample-system
   providesApis:
-    - sample-service
+    - mono-repo-no-docs
   dependsOn:
     - Component:sample-service-2
     - Resource:sample-s3-bucket
@@ -49,8 +47,8 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
-  title: Sample Service API
-  name: sample-service
+  title: Mono Repo with no docs
+  name: mono-repo-no-docs
   description: The Sample Service API allows you to send errors to Rollbar or Sentry.
   tags:
     - unstable
